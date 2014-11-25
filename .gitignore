@@ -1,0 +1,8 @@
+# Junk
+/.vagrant
+/alboard2.sublime-workspace
+
+# Virtualenv
+/bin
+/lib
+/lib64

@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": ".",
+			"folder_exclude_patterns": [".vagrant", "bin", "include", "lib"],
+			"file_exclude_patterns": ["lib64", "pyenv.cfg", ".python-version"]
+		}
+	]
+}
