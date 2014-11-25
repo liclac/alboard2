@@ -1,6 +1,7 @@
 # Junk
-/.vagrant
-/alboard2.sublime-workspace
+.vagrant
+__pycache__
+alboard2.sublime-workspace
 
 # Virtualenv
 /bin
