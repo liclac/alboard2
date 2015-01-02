@@ -38,18 +38,16 @@
 {% block after_body %}
 	<script>
 		$(document).keydown(function(e) {
-			switch(e.which) {
-				case 37:
-					$('#go-prev')[0].click();
-					break;
-				
-				case 39:
-					$('#go-next')[0].click();
-					break;
-				
-				default:
-					return;
-			}
+			// Ignore presses with modifiers; we don't want to interfere with
+			// tab cycling or the like - only lone arrow key presses
+			if(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)
+				return;
+			else if(e.which == 37)
+				$('#go-prev')[0].click();
+			else if(e.which == 39)
+				$('#go-next')[0].click();
+			else
+				return;
 			e.preventDefault();
 		});
 	</script>
