@@ -44,6 +44,9 @@ body.has-bottom-bar {
 .thumbnail .description {
 	margin-bottom: 25px;
 }
+.thumbnail .meta {
+	font-size: 75%;
+}
 
 
 @media(min-width: 768px) {
