@@ -69,6 +69,9 @@
     - name: install redis
       apt: state=latest name=redis-server
 
+    - name: install gettext
+      apt: state=latest name=gettext
+
 - hosts: all
   sudo: yes
   sudo_user: postgres
@@ -119,3 +122,6 @@
 
     - name: run database migrations
       command: "/bin/bash -c '. bin/activate && alboard2/manage.py migrate' chdir=/vagrant"
+
+    - name: compile translations
+      command: "/bin/bash -c '. bin/activate && alboard2/manage.py compilemessages' chdir=/vagrant"

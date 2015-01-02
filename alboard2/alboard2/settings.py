@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -68,10 +70,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     
     'booru',
+    'alboard2',
     
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',
+    'rosetta',
     
     'grappelli',
     'django.contrib.admin',
@@ -81,6 +85,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,7 +115,15 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'alboard2', 'static'),
 )
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'alboard2', 'locale'),
+)
+
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('sv', _("Swedish")),
+    ('en', _("English")),
+)
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True

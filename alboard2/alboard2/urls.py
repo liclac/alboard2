@@ -19,6 +19,11 @@ urlpatterns = patterns('',
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )
+
 urlpatterns += patterns('',
     url(r'^(?P<url>.*)$', 'django.contrib.flatpages.views.flatpage'),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),

@@ -5,6 +5,9 @@ alboard2.sublime-workspace
 /alboard2/_media
 /alboard2/_static
 
+# Generated data
+*.mo
+
 # Virtualenv
 /bin
 /lib
