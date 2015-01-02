@@ -26,6 +26,8 @@ THUMBNAIL_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, '_static')
@@ -59,19 +61,22 @@ SESSION_CACHE_ALIAS = "default"
 
 
 INSTALLED_APPS = (
+    'django.contrib.sites',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    
     'booru',
     
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',
-    'grappelli',
     
+    'grappelli',
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'django.contrib.flatpages',
 )
 
 MIDDLEWARE_CLASSES = (

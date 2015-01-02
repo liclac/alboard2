@@ -10,10 +10,14 @@ urlpatterns = patterns('',
     # url(r'^$', 'alboard2.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
     url(r'^event/(\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
     
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    url(r'^(?P<url>.*)$', 'django.contrib.flatpages.views.flatpage'),
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
+)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
