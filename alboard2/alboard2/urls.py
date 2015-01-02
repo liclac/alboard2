@@ -15,9 +15,11 @@ urlpatterns = patterns('',
     
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    
-    url(r'^(?P<url>.*)$', 'django.contrib.flatpages.views.flatpage'),
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += patterns('',
+    url(r'^(?P<url>.*)$', 'django.contrib.flatpages.views.flatpage'),
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
+)
