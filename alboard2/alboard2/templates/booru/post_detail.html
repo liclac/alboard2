@@ -21,7 +21,7 @@
 		<ul class="nav navbar-nav">
 			{% with object.prev_post as p %}
 				<li class="prev-button {% if not p %}disabled{% endif %}">
-					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %}><span aria-hidden="true">&larr;</span>&nbsp;{% trans "Previous" %}</a>
+					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %} id="go-prev"><span aria-hidden="true">&larr;</span>&nbsp;{% trans "Previous" %}</a>
 				</li>
 			{% endwith %}
 			
@@ -29,9 +29,28 @@
 			
 			{% with object.next_post as p %}
 				<li class="next-button {% if not p %}disabled{% endif %}">
-					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %}>{% trans "Next" %}&nbsp;<span aria-hidden="true">&rarr;</span></a>
+					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %} id="go-next">{% trans "Next" %}&nbsp;<span aria-hidden="true">&rarr;</span></a>
 				</li>
 			{% endwith %}
 		</ul>
 	</nav>
+{% endblock %}
+{% block after_body %}
+	<script>
+		$(document).keydown(function(e) {
+			switch(e.which) {
+				case 37:
+					$('#go-prev')[0].click();
+					break;
+				
+				case 39:
+					$('#go-next')[0].click();
+					break;
+				
+				default:
+					return;
+			}
+			e.preventDefault();
+		});
+	</script>
 {% endblock %}
