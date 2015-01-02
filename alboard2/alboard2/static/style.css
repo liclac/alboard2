@@ -41,6 +41,10 @@ body.has-bottom-bar {
 	text-decoration: none;
 }
 
+.thumbnail .description {
+	margin-bottom: 25px;
+}
+
 
 @media(min-width: 768px) {
 	.navbar-default {
