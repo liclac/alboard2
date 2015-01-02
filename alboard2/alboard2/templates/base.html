@@ -8,18 +8,8 @@
 	<link rel="stylesheet" href="{% bootstrap_css_url %}" />
 	<link rel="stylesheet" href="{% static 'style.css' %}" />
 </head>
-<body>
-	<div class="container">
-		{% bootstrap_messages %}
-		
-		<ol class="breadcrumb">
-			{% block breadcrumb %}
-				<li class="active">Hem</li>
-			{% endblock %}
-		</ol>
-		{% block content %}{% endblock %}
-	</div>
-	<nav class="navbar navbar-fixed-bottom navbar-default">
+<body class="{% block body_class %}{% endblock %}">
+	<nav class="navbar navbar-fixed-top navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -39,11 +29,11 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ year.grouper }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Ny händelse...</a></li>
-							<li class="divider"></li>
 							{% for pool in year.list %}
 							<li><a href="{% url 'pool' pool.id %}">{{ pool.name }} <small class="text-muted">({{ pool.start_date }}{% if pool.start_date != pool.end_date %} - {{ pool.end_date }}{% endif %})</small></a></li>
 							{% endfor %}
+							<li class="divider"></li>
+							<li><a href="#">Ny händelse...</a></li>
 						</ul>
 					</li>
 					{% endfor %}
@@ -51,6 +41,11 @@
 			</div>
 		</div>
 	</nav>
+	<div class="container">
+		{% bootstrap_messages %}
+		
+		{% block content %}{% endblock %}
+	</div>
 	
 	<script src="//code.jquery.com/jquery.min.js"></script>
 	<script src="{% bootstrap_javascript_url %}"></script>

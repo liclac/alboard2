@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 {% load markdown_deux_tags %}
 {% block title %}Bild | {{ object.pool.name }}{% endblock %}
-{% block breadcrumb %}
-	<li><a href="{% url 'index' %}">Hem</a></li>
-	<li><a href="{% url 'pool' object.pool.id %}">{{ object.pool.name }}</a></li>
-	<li class="active">Bild</li>
-{% endblock %}
+{% block body_class %}has-bottom-bar{% endblock %}
 {% block content %}
 	<div class="col-xs-12">
 		<a class="thumbnail">
@@ -21,16 +17,19 @@
 			</div>
 		</a>
 	</div>
-	<nav class="col-xs-12">
-		<ul class="pager">
+	<nav class="navbar navbar-fixed-bottom navbar-default navbar-justified">
+		<ul class="nav navbar-nav">
 			{% with object.prev_post as p %}
-				<li class="previous{% if not p %} disabled{% endif %}">
-					<a{% if p %} href="{% url 'post' p.pool.id p.id %}"{% endif %}><span aria-hidden="true">&larr;</span> Previous</a>
+				<li class="prev-button {% if not p %}disabled{% endif %}">
+					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %}><span aria-hidden="true">&larr;</span>&nbsp;Previous</a>
 				</li>
 			{% endwith %}
+			
+			<li><a href="{% url 'pool' object.pool.id %}">{{ object.pool.name }}</a></li>
+			
 			{% with object.next_post as p %}
-				<li class="next{% if not p %} disabled{% endif %}">
-					<a{% if p %} href="{% url 'post' p.pool.id p.id %}"{% endif %}>Next <span aria-hidden="true">&rarr;</span></a>
+				<li class="next-button {% if not p %}disabled{% endif %}">
+					<a {% if p %}href="{% url 'post' p.pool.id p.id %}"{% endif %}>Next&nbsp;<span aria-hidden="true">&rarr;</span></a>
 				</li>
 			{% endwith %}
 		</ul>

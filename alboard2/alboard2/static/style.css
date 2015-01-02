@@ -1,5 +1,37 @@
 body {
+	padding-top: 60px;
+}
+body.has-bottom-bar {
 	padding-bottom: 40px;
+}
+
+.navbar-default {
+	background-color: rgba(248, 248, 248, 0.85);
+}
+.navbar-default .navbar-nav > .active > a {
+	background-color: rgba(231, 231, 231, 0.5);
+}
+
+.navbar-justified .navbar-nav {
+	margin: 0 auto;
+	display: table;
+	table-layout: auto;
+	float: none;
+	width: 100%;
+}
+.navbar-justified  .navbar-nav > li {
+	display: table-cell;
+	float: none;
+	text-align: center;
+}
+
+.prev-button {
+	width: 20%;
+	text-align: left;
+}
+.next-button {
+	width: 20%;
+	text-align: right;
 }
 
 .breadcrumb:first-child {
