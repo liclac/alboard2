@@ -1,0 +1,17 @@
+body {
+	padding-bottom: 40px;
+}
+
+.breadcrumb:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.thumbnail {
+	border: 1px solid #ccc;
+	border-radius: 0;
+}
+.thumbnail:hover {
+	border: 1px solid #333;
+	text-decoration: none;
+}

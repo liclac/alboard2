@@ -51,6 +51,24 @@
         - libreadline-dev
         - libsqlite3-dev
 
+    - name: install pillow build dependencies
+      apt: state=latest name={{item}}
+      with_items:
+        - libtiff4-dev
+        - zlib1g-dev
+        - libfreetype6-dev
+        - liblcms2-dev
+        - libwebp-dev
+
+    - name: install memcached
+      apt: state=latest name={{item}}
+      with_items:
+        - memcached
+        - libmemcached-dev
+
+    - name: install redis
+      apt: state=latest name=redis-server
+
 - hosts: all
   sudo: yes
   sudo_user: postgres
@@ -89,7 +107,7 @@
         - eval "$(pyenv virtualenv-init -)"
 
     - name: build python 3.4.2
-      command: bash -lc "pyenv install 2.4.2" creates=/home/vagrant/.pyenv/versions/3.4.2
+      command: bash -lc "pyenv install 3.4.2" creates=/home/vagrant/.pyenv/versions/3.4.2
 
     - name: globally activate python 3.4.2
       command: bash -lc "pyenv global 3.4.2" creates=/home/vagrant/.pyenv/version
@@ -99,5 +117,5 @@
     - name: setup a virtualenv in the source dir
       pip: requirements=/vagrant/requirements.txt virtualenv=/vagrant virtualenv_command=/home/vagrant/.pyenv/shims/pyvenv
 
-    # - name: run database migrations
-    #   command: "/bin/bash -c '. bin/activate && python cmd.py db upgrade' chdir=/vagrant"
+    - name: run database migrations
+      command: "/bin/bash -c '. bin/activate && alboard2/manage.py migrate' chdir=/vagrant"

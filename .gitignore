@@ -2,8 +2,11 @@
 .vagrant
 __pycache__
 alboard2.sublime-workspace
+/alboard2/_media
+/alboard2/_static
 
 # Virtualenv
 /bin
 /lib
 /lib64
+
