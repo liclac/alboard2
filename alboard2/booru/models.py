@@ -35,4 +35,4 @@ class Post(models.Model):
 			return None
 	
 	def __str__(self):
-		return self.description
+		return "{0}...".format(self.description[:50]) if len(self.description) > 50 else self.description or "No Caption"
