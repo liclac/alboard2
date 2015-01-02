@@ -98,7 +98,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    "booru.context_processors.context_processor"
+    "booru.context_processors.context_processor",
+    "alboard2.context_processors.context_processor",
 )
 
 TEMPLATE_DIRS = (

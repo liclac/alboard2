@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>{% block title %}Untitled{% endblock %} | Bildslagstavla</title>
+	<title>{% block title %}Untitled{% endblock %} | {{ site.name }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="{% bootstrap_css_url %}" />
 	<link rel="stylesheet" href="{% static 'style.css' %}" />
@@ -19,7 +19,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{% url 'index' %}">Bildslagstavla</a>
+				<a class="navbar-brand" href="{% url 'index' %}">{{ site.name }}</a>
 			</div>
 			
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
