@@ -1,15 +1,17 @@
 # Junk
 .vagrant
 __pycache__
+*.pyc
 alboard2.sublime-workspace
-/alboard2/_media
-/alboard2/_static
 
 # Generated data
 *.mo
+/alboard2/_media
+/alboard2/_static
 
 # Virtualenv
 /bin
 /lib
 /lib64
+/include
 

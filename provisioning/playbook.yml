@@ -44,12 +44,19 @@
 
 
 
-    - name: install python build dependencies
+    # - name: install python build dependencies
+    #   apt: state=latest name={{item}}
+    #   with_items:
+    #     - libbz2-dev
+    #     - libreadline-dev
+    #     - libsqlite3-dev
+
+    - name: install python + virtualenv (2 for now)
       apt: state=latest name={{item}}
       with_items:
-        - libbz2-dev
-        - libreadline-dev
-        - libsqlite3-dev
+        - python
+        - python-dev
+        - python-virtualenv
 
     - name: install pillow build dependencies
       apt: state=latest name={{item}}
@@ -93,32 +100,32 @@
   gather_facts: no
 
   tasks:
-    - name: install pyenv
-      command: git clone https://github.com/yyuu/pyenv.git /home/vagrant/.pyenv creates=/home/vagrant/.pyenv
+    # - name: install pyenv
+    #   command: git clone https://github.com/yyuu/pyenv.git /home/vagrant/.pyenv creates=/home/vagrant/.pyenv
 
-    - name: install pyenv-virtualenv
-      command: git clone https://github.com/yyuu/pyenv-virtualenv.git /home/vagrant/.pyenv/plugins/pyenv-virtualenv creates=/home/vagrant/.pyenv/plugins/pyenv-virtualenv
+    # - name: install pyenv-virtualenv
+    #   command: git clone https://github.com/yyuu/pyenv-virtualenv.git /home/vagrant/.pyenv/plugins/pyenv-virtualenv creates=/home/vagrant/.pyenv/plugins/pyenv-virtualenv
 
-    - name: add pyenv profile stuff
-      lineinfile:
-        line: "{{item}}"
-        dest: /home/vagrant/.profile
-      with_items:
-        - export PYENV_ROOT="$HOME/.pyenv"
-        - export PATH="$HOME/.pyenv/bin:$PATH"
-        - eval "$(pyenv init -)"
-        - eval "$(pyenv virtualenv-init -)"
+    # - name: add pyenv profile stuff
+    #   lineinfile:
+    #     line: "{{item}}"
+    #     dest: /home/vagrant/.profile
+    #   with_items:
+    #     - export PYENV_ROOT="$HOME/.pyenv"
+    #     - export PATH="$HOME/.pyenv/bin:$PATH"
+    #     - eval "$(pyenv init -)"
+    #     - eval "$(pyenv virtualenv-init -)"
 
-    - name: build python 3.4.2
-      command: bash -lc "pyenv install 3.4.2" creates=/home/vagrant/.pyenv/versions/3.4.2
+    # - name: build python 3.4.2
+    #   command: bash -lc "pyenv install 3.4.2" creates=/home/vagrant/.pyenv/versions/3.4.2
 
-    - name: globally activate python 3.4.2
-      command: bash -lc "pyenv global 3.4.2" creates=/home/vagrant/.pyenv/version
+    # - name: globally activate python 3.4.2
+    #   command: bash -lc "pyenv global 3.4.2" creates=/home/vagrant/.pyenv/version
 
 
 
     - name: setup a virtualenv in the source dir
-      pip: requirements=/vagrant/requirements.txt virtualenv=/vagrant virtualenv_command=/home/vagrant/.pyenv/shims/pyvenv
+      pip: requirements=/vagrant/requirements.txt virtualenv=/vagrant #virtualenv_command=/home/vagrant/.pyenv/shims/pyvenv
 
     - name: run database migrations
       command: "/bin/bash -c '. bin/activate && alboard2/manage.py migrate' chdir=/vagrant"
