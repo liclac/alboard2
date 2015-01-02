@@ -1,10 +1,17 @@
 Django==1.7.1
 Pillow==2.6.1
+argparse==1.2.1
+distribute==0.6.24
 django-bootstrap3==5.0.3
 django-grappelli==2.6.3
 django-markdown-deux==1.0.5
 django-redis==3.8.0
+django-rosetta==0.7.4
 markdown2==2.3.0
+polib==1.0.4
 psycopg2==2.5.4
 redis==2.10.3
+requests==2.5.1
+six==1.9.0
 sorl-thumbnail==12.1c
+wsgiref==0.1.2
