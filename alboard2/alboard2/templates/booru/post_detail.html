@@ -42,9 +42,9 @@
 			// tab cycling or the like - only lone arrow key presses
 			if(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)
 				return;
-			else if(e.which == 37 || e.which == 65) // Arrow Left, A
+			else if(e.which == 37 || e.which == 65 || e.which == 72) // Left, A, H
 				$('#go-prev')[0].click();
-			else if(e.which == 39 || e.which == 68) // Arrow Right, D
+			else if(e.which == 39 || e.which == 68 || e.which == 76) // Right, D, L
 				$('#go-next')[0].click();
 			else if(e.which == 87 || e.which == 75) // W, K
 				window.scrollBy(0, -50);
