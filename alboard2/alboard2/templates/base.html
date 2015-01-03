@@ -40,6 +40,8 @@
 							<li><a href="#">{% trans "New Event" %}</a></li>
 						</ul>
 					</li>
+					{% empty %}
+					<li><a href="#">{% trans "New Event" %}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
