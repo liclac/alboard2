@@ -20,15 +20,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{% url 'index' %}">{{ site.name }}</a>
+				<a class="navbar-brand" href="{{ SITE_URL }}">{{ site.name }}</a>
 			</div>
 			
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					{% for page in flatpages %}
 						<li {% if request.path == page.url %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
-					{% empty %}
-						<li {% if request.path == '/' %}class="active"{% endif %}><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
 					{% endfor %}
 					{% regroup booru_pools by start_date.year as year_pools %}
 					{% for year in year_pools %}
