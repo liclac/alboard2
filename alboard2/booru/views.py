@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pool, Post
+from .forms import PoolForm
 
 class PoolView(DetailView):
 	model = Pool
@@ -11,6 +14,14 @@ class PoolView(DetailView):
 		context['active_year'] = self.object.start_date.year
 		
 		return context
+
+class PoolCreateView(CreateView):
+	model = Pool
+	form_class = PoolForm
+
+class PoolUpdateView(UpdateView):
+	model = Pool
+	fields = ['name', 'start_date', 'end_date']
 
 class PostView(DetailView):
 	model = Post

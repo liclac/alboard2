@@ -37,11 +37,11 @@
 									<li {% if object == pool %}class="active"{% endif %}><a href="{{ pool.get_absolute_url }}">{{ pool.name }} <small {% if object != pool %}class="text-muted"{% endif %}>({{ pool.start_date }}{% if pool.start_date != pool.end_date %} - {{ pool.end_date }}{% endif %})</small></a></li>
 								{% endfor %}
 								<li class="divider"></li>
-								<li><a href="#">{% trans "New Event" %}</a></li>
+								<li><a href="{% url 'pool-new' %}">{% trans "New Event" %}</a></li>
 							</ul>
 						</li>
 					{% empty %}
-						<li><a href="#">{% trans "New Event" %}</a></li>
+						<li><a href="{% url 'pool-new' %}">{% trans "New Event" %}</a></li>
 					{% endfor %}
 				</ul>
 			</div>

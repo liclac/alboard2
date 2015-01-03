@@ -10,7 +10,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'alboard2.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
+    url(r'^event/new/$', PoolCreateView.as_view(), name='pool-new'),
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
+    url(r'^event/(?P<pk>\d+)/edit/$', PoolUpdateView.as_view(), name='pool-edit'),
     url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
     
     url(r'^grappelli/', include('grappelli.urls')),

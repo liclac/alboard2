@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap3 i18n %}
+{% block title %}{% trans "New Event" %}{% endblock %}
+{% block content %}
+	<form action="." method="POST" class="form form-horizontal">
+		{% csrf_token %}
+		{% bootstrap_form form layout='horizontal' %}
+		
+		{% buttons %}
+			<button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+		{% endbuttons %}
+	</form>
+{% endblock %}
