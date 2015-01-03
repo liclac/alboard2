@@ -26,18 +26,6 @@ class Post(models.Model):
 	description = models.TextField(blank=True)
 	signature = models.CharField(max_length=30, blank=True)
 	
-	def prev_post(self):
-		try:
-			return Post.objects.filter(pool=self.pool).filter(created_at__lt=self.created_at).order_by('-created_at')[0]
-		except:
-			return None
-	
-	def next_post(self):
-		try:
-			return Post.objects.filter(pool=self.pool).filter(created_at__gt=self.created_at).order_by('created_at')[0]
-		except:
-			return None
-	
 	def get_absolute_url(self):
 		return reverse('post', kwargs={'pid': self.pool_id, 'pk': self.pk})
 	
