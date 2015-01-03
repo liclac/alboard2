@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
-    url(r'^event/(\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
+    url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
     
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),

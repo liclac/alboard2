@@ -34,7 +34,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ year.grouper }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								{% for pool in year.list %}
-									<li {% if object == pool %}class="active"{% endif %}><a href="{% url 'pool' pool.id %}">{{ pool.name }} <small {% if object != pool %}class="text-muted"{% endif %}>({{ pool.start_date }}{% if pool.start_date != pool.end_date %} - {{ pool.end_date }}{% endif %})</small></a></li>
+									<li {% if object == pool %}class="active"{% endif %}><a href="{{ pool.get_absolute_url }}">{{ pool.name }} <small {% if object != pool %}class="text-muted"{% endif %}>({{ pool.start_date }}{% if pool.start_date != pool.end_date %} - {{ pool.end_date }}{% endif %})</small></a></li>
 								{% endfor %}
 								<li class="divider"></li>
 								<li><a href="#">{% trans "New Event" %}</a></li>

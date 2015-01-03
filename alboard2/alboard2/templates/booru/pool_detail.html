@@ -4,7 +4,7 @@
 {% block content %}
 	{% for post in object.post_set.all %}
 		<div class="col-xs-6 col-sm-3 col-md-2">
-			<a href="{% url 'post' post.pool.id post.id %}" class="thumbnail">
+			<a href="{{ post.get_absolute_url }}" class="thumbnail">
 				{% thumbnail post.image "200x200" crop='center' as thumb %}
 					<img src="{{ thumb.url }}" />
 				{% empty %}

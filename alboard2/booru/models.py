@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
 
 class Pool(models.Model):
@@ -6,6 +7,9 @@ class Pool(models.Model):
 	name = models.CharField(max_length=64)
 	start_date = models.DateField()
 	end_date = models.DateField()
+	
+	def get_absolute_url(self):
+		return reverse('pool', kwargs={'pk': self.pk})
 	
 	def __str__(self):
 		return "{name} ({start} - {end})".format(name=self.name, start=self.start_date, end=self.end_date)
@@ -33,6 +37,9 @@ class Post(models.Model):
 			return Post.objects.filter(pool=self.pool).filter(created_at__gt=self.created_at).order_by('created_at')[0]
 		except:
 			return None
+	
+	def get_absolute_url(self):
+		return reverse('post', kwargs={'pid': self.pool_id, 'pk': self.pk})
 	
 	def __str__(self):
 		return "{0}...".format(self.description[:50]) if len(self.description) > 50 else self.description or "No Caption"
