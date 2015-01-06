@@ -50,3 +50,8 @@ class PostCreateView(CreateView):
 				pass
 		
 		return data
+
+class PostUpdateView(UpdateView):
+	model = Post
+	form_class = PostForm
+	context_object_name = 'post'

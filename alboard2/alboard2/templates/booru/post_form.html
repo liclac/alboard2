@@ -7,7 +7,9 @@
 		{% bootstrap_form form layout='horizontal' %}
 		
 		{% buttons %}
-			<button type="submit" class="btn btn-primary">{% trans "Upload" %}</button>
+			<button type="submit" class="btn btn-primary">
+				{% if object %}{% trans "Save" %}{% else %}{% trans "Upload" %}{% endif %}
+			</button>
 		{% endbuttons %}
 	</form>
 {% endblock %}
