@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Pool, Post
-from .forms import PoolForm
+from .models import *
+from .forms import *
 
 class PoolView(DetailView):
 	model = Pool
@@ -21,7 +21,7 @@ class PoolCreateView(CreateView):
 
 class PoolUpdateView(UpdateView):
 	model = Pool
-	fields = ['name', 'start_date', 'end_date']
+	form_class = PoolForm
 
 class PostView(DetailView):
 	model = Post
@@ -35,3 +35,18 @@ class PostView(DetailView):
 		context['next_post'] = Post.objects.filter(pool=self.object.pool).filter(created_at__gt=self.object.created_at).order_by('created_at').first()
 		
 		return context
+
+class PostCreateView(CreateView):
+	model = Post
+	form_class = PostForm
+	
+	def get_initial(self):
+		data = {}
+		
+		if 'pid' in self.kwargs:
+			try:
+				data['pool'] = Pool.objects.get(pk=self.kwargs['pid'])
+			except Pool.DoesNotExist:
+				pass
+		
+		return data

@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
     url(r'^event/(?P<pk>\d+)/edit/$', PoolUpdateView.as_view(), name='pool-edit'),
     url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
+    url(r'^event/(?P<pid>\d+)/upload/$', PostCreateView.as_view(), name='upload'),
     
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),

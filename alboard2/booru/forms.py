@@ -11,3 +11,8 @@ class PoolForm(forms.ModelForm):
 			'start_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
 			'end_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
 		}
+
+class PostForm(forms.ModelForm):
+	class Meta:
+		model = Post
+		fields = ['pool', 'image', 'description', 'signature']
