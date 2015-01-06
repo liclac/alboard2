@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
     
+    'taggit',
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',

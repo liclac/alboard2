@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
+from taggit.managers import TaggableManager
 import reversion
 
 @reversion.register
@@ -20,6 +21,8 @@ class Pool(models.Model):
 class Post(models.Model):
 	class Meta:
 		ordering = ['created_at']
+	
+	tags = TaggableManager()
 	
 	created_at = models.DateTimeField(auto_now_add=True)
 	pool = models.ForeignKey('Pool')
