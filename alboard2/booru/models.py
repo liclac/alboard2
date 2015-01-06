@@ -1,7 +1,9 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
+import reversion
 
+@reversion.register
 class Pool(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	name = models.CharField(max_length=64)
@@ -14,6 +16,7 @@ class Pool(models.Model):
 	def __str__(self):
 		return "{name} ({start} - {end})".format(name=self.name, start=self.start_date, end=self.end_date)
 
+@reversion.register
 class Post(models.Model):
 	class Meta:
 		ordering = ['created_at']

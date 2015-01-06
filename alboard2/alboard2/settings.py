@@ -68,19 +68,19 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    
-    'booru',
-    'alboard2',
+    'grappelli',
+    'reversion',
+    'django.contrib.admin',
+    'django.contrib.staticfiles',
+    'django.contrib.flatpages',
     
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',
     'rosetta',
     
-    'grappelli',
-    'django.contrib.admin',
-    'django.contrib.staticfiles',
-    'django.contrib.flatpages',
+    'booru',
+    'alboard2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,6 +93,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'reversion.middleware.RevisionMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
