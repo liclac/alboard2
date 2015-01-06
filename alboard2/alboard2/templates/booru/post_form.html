@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap3 i18n %}
-{% block title %}{% trans "Upload" %}{% endblock %}
+{% block title %}{% if post %}{% trans "Edit Post" %}{% else %}{% trans "Upload" %}{% endif %}{% endblock %}
 {% block content %}
 	<form action="." method="POST" class="form form-horizontal" enctype="multipart/form-data">
 		{% csrf_token %}
@@ -8,7 +8,7 @@
 		
 		{% buttons %}
 			<button type="submit" class="btn btn-primary">
-				{% if object %}{% trans "Save" %}{% else %}{% trans "Upload" %}{% endif %}
+				{% if post %}{% trans "Save" %}{% else %}{% trans "Upload" %}{% endif %}
 			</button>
 		{% endbuttons %}
 	</form>

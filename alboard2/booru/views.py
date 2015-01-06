@@ -22,6 +22,7 @@ class PoolCreateView(CreateView):
 class PoolUpdateView(UpdateView):
 	model = Pool
 	form_class = PoolForm
+	context_object_name = 'pool'
 
 class PostView(DetailView):
 	model = Post
