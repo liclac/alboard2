@@ -6,6 +6,9 @@ import reversion
 
 @reversion.register
 class Pool(models.Model):
+	class Meta:
+		ordering = ['-start_date']
+	
 	created_at = models.DateTimeField(auto_now_add=True)
 	name = models.CharField(max_length=64)
 	start_date = models.DateField()
