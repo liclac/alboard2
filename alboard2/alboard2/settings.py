@@ -80,12 +80,14 @@ INSTALLED_APPS = (
     'bootstrap3',
     'crispy_forms',
     'rosetta',
+    'debug_toolbar',
     
     'booru',
     'alboard2',
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -137,6 +139,12 @@ ROOT_URLCONF = 'alboard2.urls'
 WSGI_APPLICATION = 'alboard2.wsgi.application'
 
 GRAPPELLI_ADMIN_TITLE = "Alboard Admin"
+
+DEBUG_TOOLBAR_CALLBACK = lambda req: DEBUG and not req.is_ajax()
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': 'alboard2.settings.DEBUG_TOOLBAR_CALLBACK',
+}
 
 THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 
