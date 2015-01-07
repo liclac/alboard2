@@ -1,15 +1,6 @@
 {% extends 'base.html' %}
-{% load bootstrap3 i18n %}
+{% load crispy_forms_tags i18n %}
 {% block title %}{% if post %}{% trans "Edit Post" %}{% else %}{% trans "Upload" %}{% endif %}{% endblock %}
 {% block content %}
-	<form action="." method="POST" class="form form-horizontal" enctype="multipart/form-data">
-		{% csrf_token %}
-		{% bootstrap_form form layout='horizontal' %}
-		
-		{% buttons %}
-			<button type="submit" class="btn btn-primary">
-				{% if post %}{% trans "Save" %}{% else %}{% trans "Upload" %}{% endif %}
-			</button>
-		{% endbuttons %}
-	</form>
+	{% crispy form %}
 {% endblock %}

@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',
+    'crispy_forms',
     'rosetta',
     
     'booru',
@@ -138,3 +139,6 @@ WSGI_APPLICATION = 'alboard2.wsgi.application'
 GRAPPELLI_ADMIN_TITLE = "Alboard Admin"
 
 THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_FAIL_SILENTLY = not DEBUG

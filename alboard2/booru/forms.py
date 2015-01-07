@@ -1,8 +1,24 @@
 from django.utils.translation import ugettext as _
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import *
+from crispy_forms.bootstrap import *
 from .models import *
 
 class PoolForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super(PoolForm, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_class = 'form-horizontal'
+		self.helper.label_class = 'col-sm-2'
+		self.helper.field_class = 'col-sm-10'
+		self.helper.layout = Layout(
+			'name', 'start_date', 'end_date',
+			FormActions(
+				Submit('submit', u"Save")
+			)
+		)
+	
 	class Meta:
 		model = Pool
 		fields = ['name', 'start_date', 'end_date']
@@ -13,6 +29,19 @@ class PoolForm(forms.ModelForm):
 		}
 
 class PostForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super(PostForm, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_class = 'form-horizontal'
+		self.helper.label_class = 'col-sm-2'
+		self.helper.field_class = 'col-sm-10'
+		self.helper.layout = Layout(
+			'pool', 'image', 'description', 'signature', 'tags',
+			FormActions(
+				Submit('submit', u"Save")
+			)
+		)
+	
 	class Meta:
 		model = Post
 		fields = ['pool', 'image', 'description', 'signature', 'tags']
