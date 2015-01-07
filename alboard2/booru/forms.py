@@ -15,4 +15,4 @@ class PoolForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
-		fields = ['pool', 'image', 'description', 'signature']
+		fields = ['pool', 'image', 'description', 'signature', 'tags']
