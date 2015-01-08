@@ -27,13 +27,13 @@ class Post(models.Model):
 	
 	tags = TaggableManager()
 	
-	created_at = models.DateTimeField(auto_now_add=True)
-	pool = models.ForeignKey('Pool')
+	created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+	pool = models.ForeignKey('Pool', db_index=True)
 	image = ImageField(height_field='height', width_field='width')
 	width = models.IntegerField()
 	height = models.IntegerField()
 	description = models.TextField(blank=True)
-	signature = models.CharField(max_length=30, blank=True)
+	signature = models.CharField(max_length=30, blank=True, db_index=True)
 	
 	def get_absolute_url(self):
 		return reverse('post', kwargs={'pid': self.pool_id, 'pk': self.pk})
