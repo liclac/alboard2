@@ -74,6 +74,9 @@
     - name: install bower
       npm: state=latest name=bower global=yes
 
+    - name: install less
+      npm: state=latest name=less global=yes
+
     - name: install pillow build dependencies
       apt: state=latest name={{item}}
       with_items:

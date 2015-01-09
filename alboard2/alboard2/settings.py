@@ -61,6 +61,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 MEDIA_URL = '/media/'
 
+COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lessc {infile} {outfile}'),
+)
+
 BOWER_COMPONENTS_ROOT = BASE_DIR
 BOWER_INSTALLED_APPS = (
     'jquery#2.1.3',

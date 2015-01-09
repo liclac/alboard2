@@ -10,7 +10,7 @@
 	
 	{% compress css %}
 	<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}" />
-	<link rel="stylesheet" href="{% static 'style.css' %}" />
+	<link rel="stylesheet" type="text/less" href="{% static 'style.less' %}" />
 	{% endcompress %}
 	
 	{% block after_head %}{% endblock %}
