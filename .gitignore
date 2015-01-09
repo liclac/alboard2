@@ -8,6 +8,7 @@ alboard2.sublime-workspace
 *.mo
 /alboard2/_media
 /alboard2/_static
+/alboard2/bower_components
 
 # Virtualenv
 /bin

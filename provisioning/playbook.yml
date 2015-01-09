@@ -4,6 +4,16 @@
   gather_facts: no
 
   tasks:
+    - name: enable apt https transport
+      apt: state=present name=apt-transport-https force=yes update_cache=yes
+
+    - name: add nodejs signing key
+      apt_key: state=present keyserver=keyserver.ubuntu.com id=68576280
+
+    - name: add nodejs repository
+      apt_repository: state=present repo='deb https://deb.nodesource.com/node wheezy main'
+      notify: refresh apt cache
+
     # - name: add nginx signing key
     #   apt_key: state=present keyserver=keyserver.ubuntu.com id=7BD9BF62
 
@@ -57,6 +67,12 @@
         - python
         - python-dev
         - python-virtualenv
+
+    - name: install nodejs
+      apt: state=latest name=nodejs
+
+    - name: install bower
+      npm: state=latest name=bower global=yes
 
     - name: install pillow build dependencies
       apt: state=latest name={{item}}

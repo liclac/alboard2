@@ -25,18 +25,11 @@ SECRET_KEY = 'sws%+0@5gy$pv^p7x2ej95)%!d@_6yecz8ssgorq=!1d-%d$55'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_DEBUG = DEBUG
+COMPRESS_ENABLED = not DEBUG
 
 ALLOWED_HOSTS = []
 
 SITE_ID = 1
-
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, '_static')
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
-MEDIA_URL = '/media/'
 
 
 
@@ -62,6 +55,20 @@ SESSION_CACHE_ALIAS = "default"
 
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, '_static')
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+MEDIA_URL = '/media/'
+
+BOWER_COMPONENTS_ROOT = BASE_DIR
+BOWER_INSTALLED_APPS = (
+    'jquery#2.1.3',
+    'bootstrap#3.3.1'
+)
+
+
+
 INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.auth',
@@ -78,6 +85,8 @@ INSTALLED_APPS = (
     'markdown_deux',
     'sorl.thumbnail',
     'bootstrap3',
+    'djangobower',
+    'compressor',
     'crispy_forms',
     'rosetta',
     'debug_toolbar',
@@ -111,6 +120,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "booru.context_processors.context_processor",
     "alboard2.context_processors.context_processor",
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 TEMPLATE_DIRS = (

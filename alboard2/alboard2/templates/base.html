@@ -1,4 +1,4 @@
-{% load bootstrap3 staticfiles flatpages i18n %}
+{% load bootstrap3 staticfiles compress flatpages i18n %}
 {% get_flatpages for user as flatpages %}
 {% regroup booru_pools by start_date.year as year_pools %}
 <!DOCTYPE html>
@@ -7,8 +7,12 @@
 	<meta charset="utf-8" />
 	<title>{% block title %}Untitled{% endblock %} | {{ site.name }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="{% bootstrap_css_url %}" />
+	
+	{% compress css %}
+	<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}" />
 	<link rel="stylesheet" href="{% static 'style.css' %}" />
+	{% endcompress %}
+	
 	{% block after_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
@@ -52,8 +56,11 @@
 		{% block content %}{% endblock %}
 	</div>
 	
-	<script src="//code.jquery.com/jquery.min.js"></script>
-	<script src="{% bootstrap_javascript_url %}"></script>
+	{% compress js %}
+	<script src="{% static 'jquery/dist/jquery.js' %}"></script>
+	<script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
+	{% endcompress %}
+	
 	{% block after_body %}{% endblock %}
 </body>
 </html>
