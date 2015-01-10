@@ -22,6 +22,7 @@ class PoolCreateView(CreateView):
 class PoolUpdateView(UpdateView):
 	model = Pool
 	form_class = PoolForm
+	fields = ['pool', 'description', 'tags']
 	context_object_name = 'pool'
 
 class PostView(DetailView):
@@ -54,5 +55,5 @@ class PostCreateView(CreateView):
 
 class PostUpdateView(UpdateView):
 	model = Post
-	form_class = PostForm
+	form_class = PostUpdateForm
 	context_object_name = 'post'

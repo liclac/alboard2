@@ -45,3 +45,21 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
 		fields = ['pool', 'image', 'description', 'signature', 'tags']
+
+class PostUpdateForm(forms.ModelForm):
+	class Meta:
+		model = Post
+		fields = ['pool', 'description', 'tags']
+	
+	def __init__(self, *args, **kwargs):
+		super(PostUpdateForm, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_class = 'form-horizontal'
+		self.helper.label_class = 'col-sm-2'
+		self.helper.field_class = 'col-sm-10'
+		self.helper.layout = Layout(
+			'pool', 'description', 'tags',
+			FormActions(
+				Submit('submit', u"Save")
+			)
+		)
