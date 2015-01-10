@@ -15,6 +15,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable agent forwarding, lets us SSH from within the VM with the host's keys
   config.ssh.forward_agent = true
   
+  # Configure VirtualBox to give us more resources than the default
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+    v.cpus = 2
+  end
+  
+  # Same as above, but for VMWare Fusion
+  config.vm.provider "vmware_fusion" do |v|
+    v.vmx["memsize"] = "1024"
+    v.vmx["numvcpus"] = "2"
+  end
+  
   # Provision the VM with Ansible
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
