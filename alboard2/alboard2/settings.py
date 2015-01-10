@@ -97,6 +97,8 @@ INSTALLED_APPS = (
     
     'booru',
     'alboard2',
+    
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
