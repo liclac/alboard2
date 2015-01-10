@@ -62,7 +62,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 MEDIA_URL = '/media/'
 
 COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lessc {infile} {outfile}'),
+    ('text/less', 'lessc --no-color {infile} {outfile}'),
 )
 
 BOWER_COMPONENTS_ROOT = BASE_DIR
