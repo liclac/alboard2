@@ -6,27 +6,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-02 13:19+0000\n"
+"POT-Creation-Date: 2015-01-10 01:39+0000\n"
 "PO-Revision-Date: 2015-01-02 16:58+0000\n"
 "Last-Translator: b'  <uppfinnarn@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.7.4\n"
 
-#: alboard2/templates/base.html:18
+#: alboard2/settings.py:165
+msgid "Swedish"
+msgstr ""
+
+#: alboard2/settings.py:166
+msgid "English"
+msgstr ""
+
+#: alboard2/templates/account/login.html:3 alboard2/templates/base.html:61
+msgid "Log in"
+msgstr ""
+
+#: alboard2/templates/account/login.html:16
+msgid "Don't have either?"
+msgstr ""
+
+#: alboard2/templates/account/login_local.html:17
+#: alboard2/templates/account/signup.html:17
+msgid "Login"
+msgstr ""
+
+#: alboard2/templates/account/logout.html:3
+#: alboard2/templates/account/logout.html:8
+#: alboard2/templates/account/logout.html:18
+msgid "Log out"
+msgstr ""
+
+#: alboard2/templates/account/logout.html:12
+msgid "Do you really want to log out?"
+msgstr ""
+
+#: alboard2/templates/account/profile.html:3
+msgid "My Profile"
+msgstr ""
+
+#: alboard2/templates/account/signup.html:3
+#: alboard2/templates/account/signup.html:8
+msgid "Create account"
+msgstr ""
+
+#: alboard2/templates/account/signup.html:18
+msgid "Register"
+msgstr ""
+
+#: alboard2/templates/base.html:23
 msgid "Toggle navigation"
 msgstr "Visa/dölj meny"
 
-#: alboard2/templates/base.html:31
-msgid "Home"
-msgstr "Hem"
-
-#: alboard2/templates/base.html:42
+#: alboard2/templates/base.html:44 alboard2/templates/base.html.py:48
+#: alboard2/templates/booru/pool_form.html:3
 msgid "New Event"
+msgstr "Ny händelse"
+
+#: alboard2/templates/booru/pool_form.html:3
+#, fuzzy
+#| msgid "New Event"
+msgid "Edit Event"
 msgstr "Ny händelse"
 
 #: alboard2/templates/booru/post_detail.html:3
@@ -37,10 +84,22 @@ msgstr "Bild"
 msgid "Anonymous"
 msgstr "Anonym"
 
-#: alboard2/templates/booru/post_detail.html:24
+#: alboard2/templates/booru/post_detail.html:23
 msgid "Previous"
 msgstr "Föregående"
 
-#: alboard2/templates/booru/post_detail.html:32
+#: alboard2/templates/booru/post_detail.html:30
 msgid "Next"
 msgstr "Nästa"
+
+#: alboard2/templates/booru/post_form.html:3
+msgid "Edit Post"
+msgstr ""
+
+#: alboard2/templates/booru/post_form.html:3
+msgid "Upload"
+msgstr ""
+
+#: booru/forms.py:27 booru/forms.py:28
+msgid "YYYY-MM-DD"
+msgstr ""
