@@ -14,10 +14,10 @@
 					{{ form|crispy }}
 					
 					<div class="pull-right">
-						<a class="btn btn-default" href="{% url 'account_login' %}">{% trans "Login" %}</a>
+						<a class="btn btn-default" href="{% url 'account_login' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">{% trans "Login" %}</a>
 						<input type="submit" class="btn btn-primary" value="{% trans 'Register' %}" />
 					</div>
-					<input type="hidden" name="next" value="{{ next }}" />
+					<input type="hidden" name="next" value="{{ request.GET.next }}" />
 				</form>
 			</div>
 		</div>

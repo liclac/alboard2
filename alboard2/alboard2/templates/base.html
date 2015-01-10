@@ -58,7 +58,7 @@
 							</ul>
 						</li>
 					{% else %}
-						<li><a href="{% url 'account_login' %}">{% trans "Log in" %}</a></li>
+						<li><a href="{% url 'account_login' %}?next={{ request.path }}">{% trans "Log in" %}</a></li>
 					{% endif %}
 				</ul>
 			</div>

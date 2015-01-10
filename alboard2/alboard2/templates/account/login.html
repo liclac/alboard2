@@ -13,7 +13,7 @@
 					<a class="btn btn-block btn-lg ext-google" href="{% provider_login_url 'google' %}">Google</a>
 				</p>
 				<p class="text-center small">
-					<a class="text-muted" href="{% url 'account_login_local' %}">{% trans "Don't have either?" %}</a>
+					<a class="text-muted" href="{% url 'account_login_local' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">{% trans "Don't have either?" %}</a>
 				</p>
 			</div>
 		</div>

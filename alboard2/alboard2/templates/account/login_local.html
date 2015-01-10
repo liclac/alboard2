@@ -13,7 +13,7 @@
 					{{ form|crispy }}
 					
 					<div class="pull-right">
-						<a class="btn btn-default" href="{% url 'account_signup' %}">Register</a>
+						<a class="btn btn-default" href="{% url 'account_signup' %}{% if next %}?next={{ next }}{% endif %}">Register</a>
 						<input type="submit" class="btn btn-primary" value="{% trans 'Login' %}" />
 					</div>
 					<input type="hidden" name="next" value="{{ next }}" />
