@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags socialaccount i18n %}
+{% block title %}{% trans "Log in" %}{% endblock %}
+{% block content %}
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Log in</h3>
+			</div>
+			<div class="panel-body">
+				<p>
+					<a class="btn btn-block btn-lg ext-facebook" href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook</a>
+					<a class="btn btn-block btn-lg ext-google" href="{% provider_login_url 'google' %}">Google</a>
+				</p>
+				<p class="text-center small">
+					<a class="text-muted" href="{% url 'account_login_local' %}">{% trans "Don't have either?" %}</a>
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

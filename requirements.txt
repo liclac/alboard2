@@ -2,6 +2,7 @@ Django==1.7.1
 Pillow==2.6.1
 argparse==1.2.1
 distribute==0.6.24
+django-allauth==0.19.0
 django-appconf==0.6
 django-bootstrap3==5.0.3
 django-bower==5.0.1
@@ -16,10 +17,13 @@ django-reversion==1.8.5
 django-rosetta==0.7.4
 django-taggit==0.12.2
 markdown2==2.3.0
+oauthlib==0.7.2
 polib==1.0.4
 psycopg2==2.5.4
+python-openid==2.2.5
 redis==2.10.3
 requests==2.5.1
+requests-oauthlib==0.4.2
 six==1.9.0
 sorl-thumbnail==12.1c
 sqlparse==0.1.14

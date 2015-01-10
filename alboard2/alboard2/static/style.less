@@ -1,3 +1,18 @@
+@media(min-width: 768px) {
+	.navbar-default {
+		background-color: rgba(248, 248, 248, 0.85);
+		
+		.navbar-nav > .active > a,
+		.navbar-nav > .active > a:hover,
+		.navbar-nav > .active > a:focus,
+		.navbar-nav > .open > a,
+		.navbar-nav > .open > a:hover,
+		.navbar-nav > .open > a:focus {
+			background-color: rgba(200, 200, 200, 0.5);
+		}
+	}
+}
+
 body {
 	padding-top: 60px;
 	padding-bottom: 20px;
@@ -60,18 +75,37 @@ body {
 	border-radius: 0;
 }
 
-
-@media(min-width: 768px) {
-	.navbar-default {
-		background-color: rgba(248, 248, 248, 0.85);
+.nav-flat {
+	li {
+		padding: 0 5px;
 		
-		.navbar-nav > .active > a,
-		.navbar-nav > .active > a:hover,
-		.navbar-nav > .active > a:focus,
-		.navbar-nav > .open > a,
-		.navbar-nav > .open > a:hover,
-		.navbar-nav > .open > a:focus {
-			background-color: rgba(200, 200, 200, 0.5);
+		&:first-child { padding-left: 0; }
+		&:last-child { padding-right: 0; }
+		
+		a {
+			border-radius: 0;
 		}
+	}
+}
+
+.ext-facebook {
+	@fb-color: #3b5998;
+	background-color: @fb-color;
+	color: #fff;
+	
+	&:hover {
+		background-color: lighten(@fb-color, 10%) !important;
+		color: #fff;
+	}
+}
+
+.ext-google {
+	@gg-color: #5b76f7;
+	background-color: @gg-color;
+	color: #fff;
+	
+	&:hover {
+		background-color: lighten(@gg-color, 10%) !important;
+		color: #fff;
 	}
 }
