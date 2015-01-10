@@ -54,7 +54,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% user_display user %} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="{% url 'account_profile' %}">Profile</a></li>
-								<li><a href="{% url 'account_logout' %}">Log out</a></li>
+								<li><a href="{% url 'account_logout' %}?next={{ request.path }}">Log out</a></li>
 							</ul>
 						</li>
 					{% else %}
