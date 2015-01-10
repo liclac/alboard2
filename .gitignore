@@ -17,3 +17,7 @@ alboard2.sublime-workspace
 /include
 /local
 
+# OS/Editor temporaries
+._*
+.DS_Store
+
