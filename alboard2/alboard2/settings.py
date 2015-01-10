@@ -94,7 +94,6 @@ INSTALLED_APPS = (
     'taggit',
     'markdown_deux',
     'sorl.thumbnail',
-    'bootstrap3',
     'djangobower',
     'compressor',
     'crispy_forms',

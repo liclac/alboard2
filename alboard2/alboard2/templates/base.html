@@ -1,4 +1,4 @@
-{% load bootstrap3 staticfiles compress flatpages account i18n %}
+{% load staticfiles compress flatpages account i18n %}
 {% get_flatpages for user as flatpages %}
 {% regroup booru_pools by start_date.year as year_pools %}
 <!DOCTYPE html>
@@ -65,7 +65,14 @@
 		</div>
 	</nav>
 	<div class="container">
-		{% bootstrap_messages %}
+		{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-dismissible alert-{{ message.tags|default:'info' }}" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				{{ message }}
+			</div>
+			{% endfor %}
+		{% endif %}
 		{% block content %}{% endblock %}
 	</div>
 	
