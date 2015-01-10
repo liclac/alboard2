@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Same as above, but for VMWare Fusion
   config.vm.provider "vmware_fusion" do |v|
     v.vmx["memsize"] = "1024"
-    v.vmx["numvcpus"] = "2"
+    v.vmx["numvcpus"] = "1"
   end
   
   # Provision the VM with Ansible
