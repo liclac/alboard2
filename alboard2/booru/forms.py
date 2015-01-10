@@ -6,6 +6,15 @@ from crispy_forms.bootstrap import *
 from .models import *
 
 class PoolForm(forms.ModelForm):
+	class Meta:
+		model = Pool
+		fields = ['name', 'start_date', 'end_date']
+		widgets = {
+			'name': forms.TextInput(attrs={'autofocus': 'autofocus'}),
+			'start_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
+			'end_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
+		}
+	
 	def __init__(self, *args, **kwargs):
 		super(PoolForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
@@ -18,17 +27,12 @@ class PoolForm(forms.ModelForm):
 				Submit('submit', u"Save")
 			)
 		)
-	
-	class Meta:
-		model = Pool
-		fields = ['name', 'start_date', 'end_date']
-		widgets = {
-			'name': forms.TextInput(attrs={'autofocus': 'autofocus'}),
-			'start_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
-			'end_date': forms.DateInput(attrs={'placeholder': _("YYYY-MM-DD")}),
-		}
 
 class PostForm(forms.ModelForm):
+	class Meta:
+		model = Post
+		fields = ['pool', 'image', 'description', 'signature', 'tags']
+	
 	def __init__(self, *args, **kwargs):
 		super(PostForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
@@ -41,10 +45,6 @@ class PostForm(forms.ModelForm):
 				Submit('submit', u"Save")
 			)
 		)
-	
-	class Meta:
-		model = Post
-		fields = ['pool', 'image', 'description', 'signature', 'tags']
 
 class PostUpdateForm(forms.ModelForm):
 	class Meta:
