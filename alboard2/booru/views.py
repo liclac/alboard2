@@ -33,8 +33,8 @@ class PostView(DetailView):
 		context = super(DetailView, self).get_context_data(**kwargs)
 		context['pool'] = self.object.pool
 		context['active_year'] = self.object.pool.start_date.year
-		context['prev_post'] = Post.objects.filter(pool=self.object.pool).filter(created_at__lt=self.object.created_at).order_by('-created_at').first()
-		context['next_post'] = Post.objects.filter(pool=self.object.pool).filter(created_at__gt=self.object.created_at).order_by('created_at').first()
+		context['prev_post'] = Post.objects.filter(pool=self.object.pool).filter(created_at__gt=self.object.created_at).order_by('created_at').first()
+		context['next_post'] = Post.objects.filter(pool=self.object.pool).filter(created_at__lt=self.object.created_at).order_by('-created_at').first()
 		
 		return context
 
