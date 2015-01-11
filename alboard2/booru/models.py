@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
@@ -25,7 +26,7 @@ class Post(models.Model):
 	class Meta:
 		ordering = ['created_at']
 	
-	tags = TaggableManager()
+	tags = TaggableManager(help_text=_(u"A comma-separated list of tags, with spaces replaced by underscores."))
 	
 	created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 	pool = models.ForeignKey('Pool', db_index=True)

@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags i18n %}
+{% load crispy_forms_tags static i18n %}
 {% block title %}{% if post %}{% trans "Edit Post" %}{% else %}{% trans "Upload" %}{% endif %}{% endblock %}
 {% block content %}
 	{% crispy form %}
+{% endblock %}
+{% block after_head %}
+	<link rel="stylesheet" href="{% static 'tag-it/css/jquery.tagit.css' %}" />
+	<link rel="stylesheet" href="{% static 'tag-it/css/tagit.ui-zendesk.css' %}" />
+{% endblock %}
+{% block after_body %}
+	<script src="{% static 'jquery-ui/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'tag-it/js/tag-it.min.js' %}"></script>
+	
+	<script>
+	$('#div_id_tags .controls').prepend('<ul id="tags-widget"></ul>');
+	$('label[for=id_tags]').attr('for', 'tags-widget');
+	$('#id_tags').hide();
+	$('#tags-widget').tagit({
+		singleField: true,
+		singleFieldNode: $('#id_tags'),
+	});
+	</script>
 {% endblock %}
