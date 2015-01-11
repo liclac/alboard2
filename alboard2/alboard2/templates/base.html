@@ -30,6 +30,7 @@
 			
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav">
+					<li {% if request.path == '/' %}class="active"{% endif %}><a href="{% url 'posts' %}">{% trans "Home" %}</a></li>
 					{% for page in flatpages %}
 						<li {% if request.path == page.url %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
 					{% endfor %}

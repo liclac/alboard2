@@ -38,6 +38,11 @@ class PostView(DetailView):
 		
 		return context
 
+class PostsView(ListView):
+	model = Post
+	paginate_by = 30
+	context_object_name = 'posts'
+
 class PostCreateView(CreateView):
 	model = Post
 	form_class = PostForm

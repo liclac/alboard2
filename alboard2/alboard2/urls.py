@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'alboard2.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
+    url(r'^$', PostsView.as_view(), name='posts'),
     url(r'^event/new/$', PoolCreateView.as_view(), name='pool-new'),
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
     url(r'^event/(?P<pk>\d+)/edit/$', PoolUpdateView.as_view(), name='pool-edit'),
