@@ -24,7 +24,7 @@ class Pool(models.Model):
 @reversion.register
 class Post(models.Model):
 	class Meta:
-		ordering = ['created_at']
+		ordering = ['-created_at']
 	
 	tags = TaggableManager(help_text=_(u"A comma-separated list of tags, with spaces replaced by underscores."))
 	
