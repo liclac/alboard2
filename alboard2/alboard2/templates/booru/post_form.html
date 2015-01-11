@@ -14,11 +14,13 @@
 	
 	<script>
 	$('#div_id_tags .controls').prepend('<ul id="tags-widget"></ul>');
-	$('label[for=id_tags]').attr('for', 'tags-widget');
-	$('#id_tags').hide();
 	$('#tags-widget').tagit({
 		singleField: true,
 		singleFieldNode: $('#id_tags'),
 	});
+	
+	$('#id_tags').hide();
+	$('.tagit-new input').attr('id', 'tags-widget-input');
+	$('label[for=id_tags]').attr('for', 'tags-widget-input');
 	</script>
 {% endblock %}
