@@ -13,6 +13,9 @@
 						<img src="{{ thumb.url }}" />
 					{% empty %}
 					{% endthumbnail %}
+					<div class="caption caption-compact">
+						<p class="text-center text-muted small">{{ post.pool.name }}</p>
+					</div>
 				</a>
 			</div>
 		{% endfor %}
