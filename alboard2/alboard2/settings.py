@@ -201,3 +201,8 @@ THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 CRISPY_FAIL_SILENTLY = not DEBUG
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

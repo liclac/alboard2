@@ -10,6 +10,9 @@ alboard2.sublime-workspace
 /alboard2/_static
 /alboard2/bower_components
 
+# Local configuration
+settings_local.py
+
 # Virtualenv
 /bin
 /lib
