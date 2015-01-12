@@ -40,6 +40,7 @@ class PostView(DetailView):
 
 class PostsView(ListView):
 	model = Post
+	queryset = Post.objects.select_related('pool')
 	paginate_by = 30
 	context_object_name = 'posts'
 
