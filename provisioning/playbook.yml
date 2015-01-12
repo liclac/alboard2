@@ -146,6 +146,9 @@
     - name: setup a virtualenv in the source dir
       pip: requirements=/vagrant/requirements.txt virtualenv=/vagrant #virtualenv_command=/home/vagrant/.pyenv/shims/pyvenv
 
+    - name: install bower components
+      command: "/bin/bash -c '. bin/activate && alboard2/manage.py bower install' chdir=/vagrant"
+
     - name: run database migrations
       command: "/bin/bash -c '. bin/activate && alboard2/manage.py migrate' chdir=/vagrant"
 

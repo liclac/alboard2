@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags socialaccount i18n %}
+{% load crispy_forms_tags i18n %}
 {% block title %}{% trans "Log in" %}{% endblock %}
 {% block content %}
 	<div class="col-md-6 col-md-offset-3">
@@ -9,8 +9,8 @@
 			</div>
 			<div class="panel-body">
 				<p>
-					<a class="btn btn-block btn-lg ext-facebook" href="{% provider_login_url 'facebook' method='oauth2' next=request.GET.next %}">Facebook</a>
-					<a class="btn btn-block btn-lg ext-google" href="{% provider_login_url 'google' next=request.GET.next %}">Google</a>
+					<a class="btn btn-block btn-lg ext-facebook" href="{% url 'social:begin' 'facebook-oauth2' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">Facebook</a>
+					<a class="btn btn-block btn-lg ext-google" href="{% url 'social:begin' 'google-oauth2' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">Google</a>
 				</p>
 				<p class="text-center small">
 					<a class="text-muted" href="{% url 'account_login_local' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">{% trans "Don't have either?" %}</a>

@@ -1,4 +1,4 @@
-{% load staticfiles compress flatpages account i18n %}
+{% load staticfiles compress flatpages i18n %}
 {% get_flatpages for user as flatpages %}
 {% regroup booru_pools by start_date.year as year_pools %}
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
 					<li><a href="{% if pool %}{% url 'pool-upload' pool.id %}{% else %}{% url 'upload' %}{% endif %}">{% trans "Upload" %}</a></li>
 					{% if user.is_authenticated %}
 						<li class="dropdown {% if '/accounts/' in request.path %}active{% endif %}">
-							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% user_display user %} <span class="caret"></span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ user.username }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="{% url 'account_profile' %}">Profile</a></li>
 								<li><a href="{% url 'account_logout' %}?next={{ request.path }}">Log out</a></li>
