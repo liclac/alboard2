@@ -50,6 +50,7 @@
 					{% endfor %}
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{% if pool %}{% url 'pool-upload' pool.id %}{% else %}{% url 'upload' %}{% endif %}">{% trans "Upload" %}</a></li>
 					{% if user.is_authenticated %}
 						<li class="dropdown {% if '/accounts/' in request.path %}active{% endif %}">
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% user_display user %} <span class="caret"></span></a>

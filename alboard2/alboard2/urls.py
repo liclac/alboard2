@@ -11,10 +11,11 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     
     url(r'^$', PostsView.as_view(), name='posts'),
+    url(r'^upload/$', PostCreateView.as_view(), name='upload'),
     url(r'^event/new/$', PoolCreateView.as_view(), name='pool-new'),
     url(r'^event/(?P<pk>\d+)/$', PoolView.as_view(), name='pool'),
     url(r'^event/(?P<pk>\d+)/edit/$', PoolUpdateView.as_view(), name='pool-edit'),
-    url(r'^event/(?P<pid>\d+)/upload/$', PostCreateView.as_view(), name='upload'),
+    url(r'^event/(?P<pid>\d+)/upload/$', PostCreateView.as_view(), name='pool-upload'),
     url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/$', PostView.as_view(), name='post'),
     url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/edit/$', PostUpdateView.as_view(), name='post-edit'),
     
