@@ -8,13 +8,17 @@
 	
 	{% compress css %}
 	<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}" />
+	<link rel="stylesheet" href="{% static 'tag-it/css/jquery.tagit.css' %}" />
+	<link rel="stylesheet" href="{% static 'jquery-ui/themes/base/all.css' %}" />
 	<link rel="stylesheet" type="text/less" href="{% static 'style.less' %}" />
 	{% endcompress %}
 	
 	{% compress js %}
 	<script src="{% static 'jquery/dist/jquery.js' %}"></script>
-	<script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
 	<script src="{% static 'jquery-pjax/jquery.pjax.js' %}"></script>
+	<script src="{% static 'jquery-ui/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'tag-it/js/tag-it.min.js' %}"></script>
+	<script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
 	<script src="{% static 'script.js' %}"></script>
 	{% endcompress %}
 	

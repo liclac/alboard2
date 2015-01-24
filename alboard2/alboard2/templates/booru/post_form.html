@@ -4,14 +4,7 @@
 {% block content %}
 	{% crispy form %}
 {% endblock %}
-{% block after_head %}
-	<link rel="stylesheet" href="{% static 'tag-it/css/jquery.tagit.css' %}" />
-	<link rel="stylesheet" href="{% static 'jquery-ui/themes/base/all.css' %}" />
-{% endblock %}
 {% block after_body %}
-	<script src="{% static 'jquery-ui/jquery-ui.min.js' %}"></script>
-	<script src="{% static 'tag-it/js/tag-it.min.js' %}"></script>
-	
 	<script>
 	$('#div_id_tags .controls').prepend('<ul id="tags-widget"></ul>');
 	$('#tags-widget').tagit({
