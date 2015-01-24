@@ -19,7 +19,7 @@ class Pool(models.Model):
 		return reverse('pool', kwargs={'pk': self.pk})
 	
 	def __str__(self):
-		return "{name} ({start} - {end})".format(name=self.name, start=self.start_date, end=self.end_date)
+		return u"{name} ({start} - {end})".format(name=self.name, start=self.start_date, end=self.end_date)
 
 @reversion.register
 class Post(models.Model):
@@ -40,4 +40,4 @@ class Post(models.Model):
 		return reverse('post', kwargs={'pid': self.pool_id, 'pk': self.pk})
 	
 	def __str__(self):
-		return "{0}...".format(self.description[:50]) if len(self.description) > 50 else self.description or "No Caption"
+		return u"{0}...".format(self.description[:50]) if len(self.description) > 50 else self.description or u"No Caption"
