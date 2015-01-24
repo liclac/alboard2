@@ -70,7 +70,8 @@ BOWER_INSTALLED_APPS = (
     'tag-it#6ccd2de95e7cf7e254ad1a82e946450c21e40421',
     'jquery#2.1.3',
     'bootstrap#3.3.1',
-    'jquery-ui#1.11.2',
+    'jquery-pjax#1.9.4',
+    'jquery-ui#1.11.2'
 )
 
 
