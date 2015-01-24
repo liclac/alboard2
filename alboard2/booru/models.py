@@ -18,8 +18,11 @@ class Pool(models.Model):
 	def get_absolute_url(self):
 		return reverse('pool', kwargs={'pk': self.pk})
 	
-	def __str__(self):
+	def __unicode__(self):
 		return u"{name} ({start} - {end})".format(name=self.name, start=self.start_date, end=self.end_date)
+	
+	def __str__(self):
+		return self.__unicode__().encode('utf-8')
 
 @reversion.register
 class Post(models.Model):
@@ -39,5 +42,8 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('post', kwargs={'pid': self.pool_id, 'pk': self.pk})
 	
-	def __str__(self):
+	def __unicode__(self):
 		return u"{0}...".format(self.description[:50]) if len(self.description) > 50 else self.description or u"No Caption"
+	
+	def __str__(self):
+		return self.__unicode__().encode('utf-8')
