@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html"|pjax:request %}
 {% load i18n %}
 {% block title %}Delete your account{% endblock %}
 {% block content %}

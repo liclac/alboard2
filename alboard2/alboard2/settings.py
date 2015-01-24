@@ -94,6 +94,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'djangobower',
     'compressor',
+    'easy_pjax',
     'crispy_forms',
     'rosetta',
     'debug_toolbar',

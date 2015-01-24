@@ -1,0 +1,22 @@
+<title>{% block title %}Untitled{% endblock %} | {{ site.name }}</title>
+<body>
+	{% include "_navbar.html" %}
+	{% block after_head %}{% endblock %}
+	<div class="container">
+		{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-dismissible alert-{{ message.tags|default:'info' }}" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				{{ message }}
+			</div>
+			{% endfor %}
+		{% endif %}
+		{% block content %}{% endblock %}
+	</div>
+
+	{% block after_body %}{% endblock %}
+	
+	<script type="text/javascript">
+		$('body').attr('class', '{% block body_class %}{% endblock %}');
+	</script>
+</body>

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'|pjax:request %}
 {% load crispy_forms_tags i18n %}
 {% block title %}{% trans "Update Profile" %}{% endblock %}
 {% block content %}

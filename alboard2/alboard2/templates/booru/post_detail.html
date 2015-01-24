@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'|pjax:request %}
 {% load markdown_deux_tags i18n %}
 {% block title %}{% trans "Picture" %} | {{ pool.name }}{% endblock %}
 {% block body_class %}has-bottom-bar{% endblock %}

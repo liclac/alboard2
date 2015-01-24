@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'|pjax:request %}
 {% load thumbnail i18n %}
 {% block title %}{% trans "Latest Pictures" %}{% endblock %}
 {% block content %}

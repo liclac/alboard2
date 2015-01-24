@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'|pjax:request %}
 {% load crispy_forms_tags static i18n %}
 {% block title %}{% if post %}{% trans "Edit Post" %}{% else %}{% trans "Upload" %}{% endif %}{% endblock %}
 {% block content %}

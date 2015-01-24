@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'|pjax:request %}
 {% load thumbnail markdown_deux_tags %}
 {% block title %}{{ pool.name }}{% endblock %}
 {% block content %}
