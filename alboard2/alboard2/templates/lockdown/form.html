@@ -1,0 +1,58 @@
+{% load staticfiles compress widget_tweaks i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>{% trans "Enter password" %} | {{ site.name }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	{% compress css %}
+	<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/less" href="{% static 'style.less' %}" />
+	{% endcompress %}
+	
+	{% compress js %}
+	<script src="{% static 'jquery/dist/jquery.js' %}"></script>
+	<script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
+	{% endcompress %}
+</head>
+<body>
+	<div class="container">
+		{% for message in messages %}
+		<div class="alert alert-dismissible alert-{{ message.tags|default:'info' }}" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			{{ message }}
+		</div>
+		{% endfor %}
+		
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">{% trans "Enter password" %}</h4>
+				</div>
+				<div class="panel-body">
+					{% if form.errors %}
+						<div class="alert alert-danger">
+							{% trans "Invalid password, try again" %}
+						</div>
+					{% endif %}
+					<form class="form-horizontal" method="POST">
+						<div class="form-group">
+							<label for="{{ form.password.name }}" class="col-sm-2 control-label">{% trans "Password" %}</label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									{{ form.password|add_class:"form-control"|attr:"autofocus:autofocus" }}
+									<div class="input-group-btn">
+										<button class="btn btn-primary" type="submit">&rarr;</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

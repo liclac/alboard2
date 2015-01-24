@@ -96,7 +96,9 @@ INSTALLED_APPS = (
     'compressor',
     'easy_pjax',
     'crispy_forms',
+    'widget_tweaks',
     'rosetta',
+    'lockdown',
     'debug_toolbar',
     
     'booru',
@@ -106,8 +108,9 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'lockdown.middleware.LockdownMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -198,6 +201,16 @@ THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 CRISPY_FAIL_SILENTLY = not DEBUG
+
+# 
+# To enable password protection for your site, add to settings_local.py:
+# 
+# LOCKDOWN_URL_EXCEPTIONS = ()
+# LOCKDOWN_PASSWORDS = ('mypass',)
+# 
+LOCKDOWN_URL_EXCEPTIONS = (
+    r'.*',
+)
 
 try:
     from settings_local import *
