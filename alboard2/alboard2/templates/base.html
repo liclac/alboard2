@@ -15,11 +15,7 @@
 	<script src="{% static 'jquery/dist/jquery.js' %}"></script>
 	<script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
 	<script src="{% static 'jquery-pjax/jquery.pjax.js' %}"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(document).pjax('a', 'body');
-		});
-	</script>
+	<script src="{% static 'script.js' %}"></script>
 	{% endcompress %}
 	
 	{% block after_head %}{% endblock %}

@@ -24,8 +24,8 @@
 	{% if is_paginated %}
 		<nav>
 			<ul class="pager">
-				<li class="previous {% if not page_obj.has_previous %}disabled{% endif %}"><a {% if page_obj.has_previous %}href="{{ request.path }}?page={{ page_obj.previous_page_number }}"{% endif %}><span aria-hidden="true">&larr;</span> {% trans "Newer " %}</a></li>
-				<li class="next  {% if not page_obj.has_next %}disabled{% endif %}"><a {% if page_obj.has_next %}href="{{ request.path }}?page={{ page_obj.next_page_number }}"{% endif %}>{% trans "Older" %} <span aria-hidden="true">&rarr;</span></a></li>
+				<li class="previous {% if not page_obj.has_previous %}disabled{% endif %}"><a {% if page_obj.has_previous %}href="{{ request.path }}?page={{ page_obj.previous_page_number }}" id="go-prev"{% endif %}><span aria-hidden="true">&larr;</span> {% trans "Newer " %}</a></li>
+				<li class="next  {% if not page_obj.has_next %}disabled{% endif %}"><a {% if page_obj.has_next %}href="{{ request.path }}?page={{ page_obj.next_page_number }}" id="go-next"{% endif %}>{% trans "Older" %} <span aria-hidden="true">&rarr;</span></a></li>
 			</ul>
 		</nav>
     {% endif %}
