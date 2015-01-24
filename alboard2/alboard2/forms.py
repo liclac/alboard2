@@ -19,6 +19,9 @@ class ProfileForm(forms.ModelForm):
 		self.helper.layout = Layout(
 			'username', 'first_name', 'last_name',
 			FormActions(
-				Submit('submit', _(u"Save"))
+				Submit('submit', _(u"Save")),
+				HTML('''
+					<a class="btn btn-danger" href="{% url 'account_delete' %}">Delete my account</a>
+				''')
 			)
 		)

@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^event/(?P<pid>\d+)/(?P<pk>\d+)/edit/$', PostUpdateView.as_view(), name='post-edit'),
     
     url(r'^accounts/profile/$', ProfileUpdateView.as_view(), name='account_profile'),
+    url(r'^accounts/delete/$', ProfileDeleteView.as_view(), name='account_delete'),
     url(r'^accounts/login/$', TemplateView.as_view(template_name='account/login.html'), name='account_login'),
     url(r'^accounts/login/local/$', 'django.contrib.auth.views.login', {'template_name': 'account/login_local.html'}, name='account_login_local'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='account_logout'),

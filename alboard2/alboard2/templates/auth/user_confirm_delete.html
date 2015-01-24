@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Delete your account{% endblock %}
+{% block content %}
+	<div class="col-md-offset-3 col-md-6">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<h4 class="panel-title">Delete your account</h4>
+			</div>
+			<div class="panel-body">
+				{% blocktrans %}
+				<p>
+					<strong>Are you sure?</strong><br />
+					Once you delete your account, there is no going back. This is your last chance to change your mind - once you click the button below, your entire account will go boom.
+				</p>
+				<p>
+					All your uploaded material will remain, and if you want to come back, you are of course welcome to create a new account!
+				</p>
+				{% endblocktrans %}
+				<hr />
+				<form class="form-inline" action="{% url 'account_delete' %}" method="post">
+					{% csrf_token %}
+					<button class="btn btn-danger" id="submit" type="submit">Yes, do as I say!</button>
+					<label class="checkbox hidden" id="confirm-check-container">
+						<input type="checkbox" id="confirm-check" />
+						I am absolutely sure I want to do this!
+					</label>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block after_body %}
+	<script type="text/javascript">
+		$('#confirm-check-container').removeClass('hidden');
+		$('#submit').attr('disabled', true);
+		$('#confirm-check').change(function() {
+			$('#submit').attr('disabled', !$(this).is(':checked'));
+		}).change();
+	</script>
+{% endblock %}
